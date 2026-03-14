@@ -8,11 +8,11 @@ Works with: Claude, ChatGPT, Gemini, o1/o3, Cursor, Claude Code, GitHub Copilot,
 
 ## Installation
 
-
 ### Claude.ai (browser)
 
 1. Download this repo as a ZIP
-2. Go to **claude.ai → Sidebar → Customize → Upload into Custom Skill**
+2. Or Copy the full contents of SKILL.md
+3. Go to **claude.ai → Sidebar → Customize → Upload into Custom Skill**
 
 
 ### Recommended (clone directly into Claude Code skills directory)
@@ -32,7 +32,6 @@ cp SKILL.md ~/.claude/skills/prompt-master/
 ```
 
 
-
 ---
 
 ## Usage
@@ -45,10 +44,6 @@ Write me a prompt for Cursor to refactor my auth module
 
 ```
 I need a prompt for Claude Code to build a REST API — ask me what you need to know
-```
-
-```
-Here's a bad prompt I wrote for GPT-4o, fix it: [paste prompt]
 ```
 
 ```
@@ -70,6 +65,14 @@ I want to ask Claude Code to build a todo app with React and Supabase
 Every AI user burns credits the same way:
 
 > Write vague prompt → get wrong output → re-prompt → get closer → re-prompt again → finally get what you wanted on attempt 4
+
+That's 3 wasted API calls. Multiply by 50 prompts a day. Credits and time wasted stacks quickly.
+
+### Key Insight
+
+> "The best prompt is not the longest; it's the one where every word is load-bearing."
+
+Most "prompt generators" make prompts longer. This skill makes them sharper.
 
 ---
 
@@ -245,8 +248,10 @@ This solves the #1 cause of wasted re-prompts in long sessions.
 
 ## Version History
 
-- **1.0.0** - Initial release
-- **1.1.0** - Added more patterns
+- **1.3.0** — Rebuilt around PAC2026 positional structure (30/55/15). Silent routing replaces user-facing framework selection. Reference folders introduced
+- **1.2.0** — Restructured for attention architecture. Removed fabrication-prone techniques (ToT, GoT, USC, prompt chaining). Templates and patterns moved to references folder.
+- **1.1.0** — Expanded tool coverage, added memory block system, 35 patterns
+- **1.0.0** — Initial release
 
 ---
 
