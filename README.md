@@ -8,14 +8,12 @@ Works with: Claude, ChatGPT, Gemini, o1/o3, Cursor, Claude Code, GitHub Copilot,
 
 ## Installation
 
-### Claude.ai (browser)
+### Recommended Claude.ai (browser)
 
-1. Download this repo as a ZIP
-2. Or Copy the full contents of SKILL.md
-3. Go to **claude.ai → Sidebar → Customize → Upload into Custom Skill**
+1. Download this repo as a ZIP 
+2. Go to **claude.ai → Sidebar → Customize → Upload into Custom Skill**
 
-
-### Recommended (clone directly into Claude Code skills directory)
+### Clone directly into Claude Code skills directory
 
 ```bash
 mkdir -p ~/.claude/skills
@@ -47,6 +45,10 @@ I need a prompt for Claude Code to build a REST API — ask me what you need to 
 ```
 
 ```
+Here's a bad prompt I wrote for GPT-4o, fix it: [paste prompt]
+```
+
+```
 Generate a Midjourney prompt for a cyberpunk city at night
 ```
 
@@ -66,11 +68,11 @@ Every AI user burns credits the same way:
 
 > Write vague prompt → get wrong output → re-prompt → get closer → re-prompt again → finally get what you wanted on attempt 4
 
-That's 3 wasted API calls. Multiply by 50 prompts a day. Credits and time wasted stacks quickly.
+That's 3 wasted API calls. Multiply by 50 prompts a day. That's real money and real time gone.
 
 ### Key Insight
 
-> "The best prompt is not the longest; it's the one where every word is load-bearing."
+> "The best prompt is not the longest — it's the one where every word is load-bearing."
 
 Most "prompt generators" make prompts longer. This skill makes them sharper.
 
@@ -80,13 +82,13 @@ Most "prompt generators" make prompts longer. This skill makes them sharper.
 
 Prompt Master runs a structured pipeline on every request:
 
-1. **Detects the target tool** — identifies which AI system the prompt is for and applies tool-specific optimizations
+1. **Detects the target tool** — identifies which AI system the prompt is for and routes silently to the right approach
 2. **Extracts 9 dimensions of intent** — task, input, output, constraints, context, audience, memory, success criteria, examples
 3. **Asks targeted clarifying questions** — max 3 questions if critical info is missing, never more
-4. **Selects the right framework** — chooses from 9 prompt frameworks based on task type
-5. **Applies advanced techniques** — layers in CoT, few-shot, XML tags, memory blocks, grounding anchors as needed
+4. **Routes to the right framework** — selects and applies the correct prompt architecture automatically, never shown to the user
+5. **Applies safe techniques only** — role assignment, few-shot examples, XML structure, grounding anchors, memory block as needed
 6. **Runs a token efficiency audit** — strips every word that doesn't change the output
-7. **Delivers the prompt** — clean copyable block with target tool, framework used, token estimate, and strategy note
+7. **Delivers the prompt** — one clean copyable block with a one-line strategy note
 
 ---
 
@@ -134,20 +136,17 @@ Prompt Master picks the right architecture for every task automatically.
 
 ---
 
-## 10 Advanced Techniques Applied Automatically
+## 5 Safe Techniques Applied When Needed
+
+Prompt Master only applies techniques with reliable, bounded effects. Fabrication-prone techniques like Tree of Thought, Graph of Thought, Universal Self-Consistency, and prompt chaining are explicitly excluded.
 
 | Technique | What It Does |
 |-----------|-------------|
-| **Role Activation** | Assigns a specific expert identity to calibrate depth and vocabulary |
-| **Chain of Thought** | Forces step-by-step reasoning for logic and analysis tasks |
-| **Few-Shot Injection** | Adds 2–5 examples when format consistency matters more than instructions |
+| **Role Assignment** | Assigns a specific expert identity to calibrate depth and vocabulary |
+| **Few-Shot Examples** | Adds 2-5 examples when format consistency matters more than instructions |
 | **XML Structural Tags** | Wraps sections in XML for Claude-based tools that parse it reliably |
-| **Response Prefilling** | Starts the AI's response with the first characters to lock in format |
-| **Prompt Chaining** | Splits complex tasks into sequential focused prompts |
 | **Grounding Anchors** | Adds anti-hallucination rules for factual and citation tasks |
-| **Output Scaffolding** | Provides the skeleton for long structured outputs |
-| **Negative Constraints** | Adds precise do-not-do rules without triggering reverse-psychology effects |
-| **Self-Check Instruction** | Asks the AI to verify its own output before finishing |
+| **Chain of Thought** | Forces step-by-step reasoning for logic tasks — never applied to o1/o3 |
 
 ---
 
@@ -237,6 +236,62 @@ This solves the #1 cause of wasted re-prompts in long sessions.
 
 ---
 
+## Full Example
+
+### User Input
+```
+i want to ask cursor to fix the bug in my login page
+```
+
+### Prompt Master Asks
+```
+Two quick things before I write this:
+1. What file is the login page in, and what's the buggy function called?
+2. What is the bug doing wrong right now?
+```
+
+### User Answers
+```
+it's src/pages/Login.tsx, the handleLogin function.
+When login fails it should show an error but the page just goes blank
+```
+
+### Generated Prompt
+
+```
+File: src/pages/Login.tsx
+Function: handleLogin
+
+Current Behavior:
+When login credentials are wrong or the server errors,
+the page goes blank. No error message is shown.
+
+Desired Change:
+After a failed login, display an inline error below the submit button.
+401 → "Incorrect email or password"
+500+ → "Something went wrong, please try again"
+Network error → "Unable to connect, please check your connection"
+
+Scope:
+Modify only handleLogin and the JSX error display section.
+Do NOT touch: form layout, input validation, styling, loading state.
+
+Constraints:
+- No new dependencies
+- TypeScript strict — no `any`, no type assertions
+- Preserve existing function signature and return type
+- Keep current loading state logic untouched
+
+Done When:
+- Failed login shows the correct error message below submit
+- Successful login still redirects correctly
+- Zero new TypeScript errors introduced
+```
+
+**🎯 Target:** Cursor · **⚡ Framework:** File-Scope Template · **💰 Tokens:** Light (~195) · **💡 Strategy:** Scoped to one function, do-not-touch list prevents layout breakage, three-case error spec eliminates ambiguity.
+
+---
+
 ## References
 
 - [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — Primary source for Claude-specific patterns
@@ -248,7 +303,7 @@ This solves the #1 cause of wasted re-prompts in long sessions.
 
 ## Version History
 
-- **1.3.0** — Rebuilt around PAC2026 positional structure (30/55/15). Silent routing replaces user-facing framework selection. Reference folders introduced
+- **1.3.0** — Rebuilt around PAC2026 positional structure (30/55/15). Silent routing replaces user-facing framework selection. 
 - **1.2.0** — Restructured for attention architecture. Removed fabrication-prone techniques (ToT, GoT, USC, prompt chaining). Templates and patterns moved to references folder.
 - **1.1.0** — Expanded tool coverage, added memory block system, 35 patterns
 - **1.0.0** — Initial release
