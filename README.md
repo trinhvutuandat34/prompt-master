@@ -1,6 +1,12 @@
+<div align="center">
+   # Prompt Master
+</div>
+
+---
+
 ![](https://s6.imgcdn.dev/YvLVug.png)
 
-# Prompt Master
+<br/>
 
 A Claude skill that writes the accurate prompts for any AI tool. Zero tokens or credits wasted. Full context and memory retention.
 
@@ -8,12 +14,13 @@ Works with: Claude, ChatGPT, Gemini, o1/o3, Cursor, Claude Code, GitHub Copilot,
 
 ---
 
-## Installation
+## 🔧 Installation
 
 ### Recommended Claude.ai (browser)
 
 1. Download this repo as a ZIP
-2. Go to **claude.ai → Sidebar → Customize → Upload into Custom Skill**
+2. Go to **claude.ai → Sidebar → Customize → Skills → Upload a Skill**
+
 
 ### Clone directly into Claude Code skills directory
 
@@ -33,9 +40,9 @@ cp SKILL.md ~/.claude/skills/prompt-master/
 
 ---
 
-## Usage
+## 🎯 Usage
 
-In Claude, invoke the skill naturally:
+In Claude, you can invoke the skill naturally:
 
 ```
 Write me a prompt for Cursor to refactor my auth module
@@ -71,7 +78,7 @@ I want to ask Claude Code to build a todo app with React and Supabase
 
 ---
 
-## The Problem This Solves
+## 🛠️ The Problem This Solves
 
 Every AI user burns credits the same way:
 
