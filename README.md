@@ -6,16 +6,6 @@
 
 <br/>
 
-<p align="center">
-
-  <a href="https://makeapullrequest.com">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" />
-  </a>
-  <a href="https://www.apache.org/licenses/LICENSE-MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: Apache-2.0" />
-  </a>
-</p>
-
 A Claude skill that writes the accurate prompts for any AI tool. Zero tokens or credits wasted. Full context and memory retention.
 
 Works with: Claude, ChatGPT, Gemini, o1/o3, Cursor, Claude Code, GitHub Copilot, Windsurf, Bolt, v0, Lovable, Devin, Perplexity, Midjourney, DALL-E, Stable Diffusion, ComfyUI, Sora, Runway, ElevenLabs, Zapier, Make, and any AI tool you throw at it.
@@ -386,3 +376,11 @@ This solves the #1 cause of wasted re-prompts in long sessions.
 ## License
 
 MIT
+
+---
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=nidhinjs/prompt-master&type=Date)](https://star-history.com/#nidhinjs/claude-skills&Date)
+
+---
