@@ -1,5 +1,5 @@
 <div align="center">
-   # Prompt Master
+   <h1>Prompt Master</h1>
 </div>
 
 ---
