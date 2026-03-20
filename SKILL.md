@@ -197,7 +197,7 @@ Identify the tool and route accordingly. Read full templates from [references/te
 
 ---
 
-**Research / Orchestration AI** (Perplexity, Manus, Perplexity Computer)
+**Research / Orchestration AI** (Perplexity, Manus AI)
 - Perplexity search mode: specify search vs analyze vs compare. Add citation requirements. Reframe hallucination-prone questions as grounded queries.
 - Manus and Perplexity Computer are multi-agent orchestrators — describe the end deliverable, not the steps. They decompose internally.
 - For Perplexity Computer: specify the output artifact type (report / spreadsheet / code / summary). Add "Flag any data point you are not confident about."
@@ -205,7 +205,7 @@ Identify the tool and route accordingly. Read full templates from [references/te
 
 ---
 
-**Computer-Use / Browser Agents** (Perplexity Comet, OpenAI Atlas, Claude in Chrome)
+**Computer-Use / Browser Agents** (Perplexity Comet/Computer, OpenAI Atlas, Claude in Chrome, OpenClaw Agents)
 - These agents control a real browser — they click, scroll, fill forms, and complete transactions autonomously
 - Describe the outcome, not the navigation steps: "Find the cheapest flight from X to Y on Emirates or KLM, no Boeing 737 Max, one stop maximum"
 - Specify constraints explicitly — the agent will make its own decisions without them
